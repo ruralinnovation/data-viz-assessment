@@ -1,5 +1,3 @@
-Do you have any recommendations or feedback on this skills assessment description I wrote:
-
 # Data visualization developer assessment
 
 This short skills assessment involves pulling public data, creating a chart + map, and writing a brief summary of your findings. It should take about an hour to complete. Please don't spend much more than this. We want to be respectful of your time and don't expect perfection. If you run into any issues, please don't hesitate to reach out!
