@@ -23,7 +23,7 @@ To determine which counties are rural, you'll need to employ a rural definition.
 devtools::install_github("ruralinnovation/ruraldefinitions")
 ```
 
-We typically use the Office of Management and Budget's Core-Based Statistical Area's definition when working with county-level data. You can access the 2020 version of definition using `ruraldefinitions:cbsa_2020`.
+We typically use the Office of Management and Budget's definition of Core-Based Statistical Areas when working with county-level data. You can access the 2020 version of this definition using `ruraldefinitions:cbsa_2020`.
 
 Another useful package when visualizing data is our theming library [cori.charts](https://github.com/ruralinnovation/cori.charts/). 
 
