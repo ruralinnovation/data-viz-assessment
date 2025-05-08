@@ -52,7 +52,7 @@ When preparing spatial data for mapping in R, the following functions are often 
 - `sf::st_transform(data, crs = 5070)` – Transforms the coordinate reference system to Albers Equal Area Conic (EPSG:5070), which is commonly used for U.S.-wide maps to preserve area.
 
 
-The data should now be ready for mapping! Produce a map using geom_sf and save a png file to the export subfolder. If using `cori.charts::save_plot`, sizing maps can be a bit finicky and you may need to play around with the `chart_height` parameter to get something that looks good.
+The data should now be ready for mapping! Produce a map using geom_sf and save a png file to the `export` subfolder. If using `cori.charts::save_plot`, sizing maps can be a bit finicky and you may need to play around with the `chart_height` parameter to get something that looks good.
 
 
 **5) Create a Pull Request with your changes**
@@ -62,5 +62,9 @@ In the description of the pull request, write a brief (1-3 sentence) summary of 
 
 ## Misc notes
 
-- This repo was forked from our standard data project template. Generally, R files go in the R subfolder, images go in export, and data files (CSV, parquet) go in the data subfolder.
-- Please comment your code as you see fit.
+- This repository is based on our standard data project template. By convention:
+  - R scripts go in the `R/` folder
+  - Exported images (e.g., charts, maps) go in the `export/` folder
+  - Data files (e.g., CSVs, Parquet files) go in the `data/` folder
+- Please comment your code where it helps explain your process or decisions.
+
