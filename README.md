@@ -12,7 +12,7 @@ For this assessment, you're going to be analyzing and visualizing broadband adop
 
 **2) Pull American Community Survey Data**
 
-Use the [tidycensus](https://walker-data.com/tidycensus/articles/basic-usage.html) package (and, in particular, the `get_acs` function) to pull county data on household broadband adoption rates for 2023. You can view available variables by calling `tidycensus::load_variables(2023, "acs5")`. The relevant table for adoption rates is table `B28002`: *Presence and Types of Internet Subscriptions in Household*. At CORI, we use variable `B28002_007` (Broadband such as cable, fiber optic or DSL) to identify whether a household has a broadband subscription.
+Use the [tidycensus](https://walker-data.com/tidycensus/articles/basic-usage.html) package (and, in particular, the `get_acs` function) to pull county data on household broadband adoption rates for 2023. You'll need to sign up for a [Census API Key](http://api.census.gov/data/key_signup.html). You can view available variables by calling `tidycensus::load_variables(2023, "acs5")`. The relevant table for adoption rates is table `B28002`: *Presence and Types of Internet Subscriptions in Household*. At CORI, we use variable `B28002_007` (Broadband such as cable, fiber optic or DSL) to identify whether a household has a broadband subscription.
 
 **3) Visualize rural vs nonrural broadband adoption rates**
 
