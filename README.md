@@ -39,7 +39,7 @@ devtools::install_github("ruralinnovation/cori.charts")
 - `theme_cori_horizontal_bars` extends theme_cori with some horizontal bar specific styling.
 - `theme_cori_map` extends theme_cori with some map specific styling.
 
-Produce a chart that compares rural and nonrural broadband adoption in 2023. Simple is OK! Feel free to reference our ["cookbook"](https://ruralinnovation.github.io/cori.charts/articles/cookbook.html) for chart examples. Save your chart as a png in the export subfolder using cori.charts::save_plot.
+Produce a chart that compares rural and nonrural broadband adoption in 2023. Simple is OK! Feel free to reference our ["cookbook"](https://ruralinnovation.github.io/cori.charts/articles/cookbook.html) for chart examples. Save your chart as a png in the export subfolder using `cori.charts::save_plot`.
 
 **4) Map broadband adoption rates by county**
 
