@@ -18,19 +18,19 @@ Use the [tidycensus](https://walker-data.com/tidycensus/articles/basic-usage.htm
 
 To determine which counties are rural, you'll need to employ a rural definition. CORI's ruraldefinitions package is a helpful resource. Here's how to download it: 
 
-r
+```r
 # install.packages("devtools")
 devtools::install_github("ruralinnovation/ruraldefinitions")
-
+```
 
 We typically use the Office of Management and Budget's Core-Based Statistical Area's definition when working with county-level data. You can access the 2020 version of definition like this ruraldefinitions:cbsa_2020.
 
 Another useful package when visualizing data is our theming library [cori.charts](https://github.com/ruralinnovation/cori.charts/). 
 
-r
+```r
 # install.packages("devtools")
 devtools::install_github("ruralinnovation/cori.charts")
-
+```
 
 cori.charts contains several useful functions for loading fonts, implementing consistent styling, and exporting graphics. Here's a few useful ones:
 
