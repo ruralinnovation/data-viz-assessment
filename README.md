@@ -4,7 +4,7 @@ This short skills assessment involves pulling public data, creating a chart + ma
 
 ## The task
 
-For this assessment, you're going to be analyzing and visualizing digital access data from the US Census Bureau's 2023 American Community Survey. 
+For this assessment, you're going to be analyzing and visualizing broadband adoption data from the US Census Bureau's 2023 American Community Survey. 
 
 ## Steps
 
