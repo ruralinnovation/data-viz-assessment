@@ -1,54 +1,81 @@
-# Data visualization developer assessment
+# Data Visualization Developer Assessment
 
-This short skills assessment involves pulling public data, creating a chart + map, and writing a brief summary of your findings. It should take about an hour to complete. Please don't spend much more than this. We want to be respectful of your time and don't expect perfection. If you run into any issues, please don't hesitate to reach out!
+This short skills assessment involves pulling public data, creating a chart and map, and writing a brief summary of your findings. It should take about an hour to complete—please don’t spend much more than that. We want to be respectful of your time and don’t expect perfection. If you run into any issues, don’t hesitate to reach out!
 
-## The task
+## The Task
 
-For this assessment, you're going to be analyzing and visualizing digital access data from the US Census Bureau's 2023 American Community Survey. 
+You’ll be analyzing and visualizing digital access data from the U.S. Census Bureau’s 2023 American Community Survey.
 
 ## Steps
 
-**1) Fork this repository and clone it to your local computer**
+### 1) Fork this repository and clone it locally
 
-**2) Pull American Community Survey Data**
+This will allow you to work in your own version of the project and submit your changes via pull request.
 
-Use the [`tidycensus`](https://walker-data.com/tidycensus/articles/basic-usage.html) package (and, in particular, the `get_acs` function) to pull county data on household broadband adoption rates for 2023. You can view available variables by calling `tidycensus::load_variables(2023, "acs5")`. The relevant table for adoption rates is table `B28002`: Presence and Types of Internet Subscriptions in Household. At CORI, we use variable `B28002_007` (Broadband such as cable, fiber optic or DSL) to identify whether a household has a broadband subscription.
+### 2) Pull broadband adoption data from the American Community Survey
 
-**3) Visualize rural vs nonrural broadband adoption rates**
+Use the [`tidycensus`](https://walker-data.com/tidycensus/articles/basic-usage.html) package to pull county-level data on household broadband adoption rates for 2023. The function you'll use is `get_acs()`.
 
-To determine which counties are rural, you'll need to employ a rural definition. CORI's `ruraldefinitions` package is a helpful resource. Here's how to download it: 
+To view available variables, use:
 
-```r
-# install.packages("devtools")
-devtools::install_github("ruralinnovation/ruraldefinitions")
-```
+`tidycensus::load_variables(2023, "acs5")`
 
-We typically use the Office of Management and Budget's Core-Based Statistical Area's definition when working with county-level data. You can access the 2020 version of definition like this `ruraldefinitions:cbsa_2020`.
+The relevant table is `B28002`: *Presence and Types of Internet Subscriptions in Household*. We typically use:
 
-Another useful package when visualizing data is our theming library [`cori.charts`](https://github.com/ruralinnovation/cori.charts/). 
+- `B28002_007`: Broadband such as cable, fiber optic, or DSL
 
-```r
-# install.packages("devtools")
-devtools::install_github("ruralinnovation/cori.charts")
-```
+### 3) Compare rural vs. nonrural broadband adoption
 
-`cori.charts` contains several useful functions for loading fonts, implementing consistent styling, and exporting graphics. Here's a few useful ones:
+To define which counties are rural, we recommend using our [`ruraldefinitions`](https://github.com/ruralinnovation/ruraldefinitions) package:
 
-`load_fonts` loads relevant Google Fonts (Lato) into your local environment.
-`theme_cori` applies standardized formatting (consistent margins, fonts, etc.)
-`theme_cori_horizontal_bars` extends `theme_cori` with some horizontal bar specific styling.
-`theme_cori_map` extends `theme_cori` with some map specific styling.
+`devtools::install_github("ruralinnovation/ruraldefinitions")`
 
-Produce a chart that compares rural and nonrural broadband adoption in 2023. Simple is OK! Feel free to reference our ["cookbook"](https://ruralinnovation.github.io/cori.charts/articles/cookbook.html) for chart examples. Save your chart as a png in the `export` subfolder using `cori.charts::save_plot`.
+We typically use the Office of Management and Budget's Core-Based Statistical Area (CBSA) definition. You can access the 2020 version using:
 
-**4) Map broadband adoption rates by county**
+`ruraldefinitions::cbsa_2020`
 
-Next up, let's map how broadband adoption rates vary by county. To do so, we'll need to need to load county geometries using the `tigris::counties` function and join it with our broadband adoption data. When mapping data in R, I often use three functions. First, when joining spatial data with non-spatial data, you may need to convert the derived output to an sf object with `sf::st_as_sf`. Second, when mapping the USA, it's helpful to use `tigris::shift_geometry` to rescale Hawaii and Alaska. Third, depending on the data, it may be necessary to transform the projected coordinate system. I recommend using the Albers Equal Area Conic projection, which can be done with `st_transform(data, crs = 5070)`. 
+To style your charts, consider using our [`cori.charts`](https://github.com/ruralinnovation/cori.charts) package:
 
-The data should now be ready for mapping! Produce a map using `geom_sf` and save a png file to the `export` subfolder. If using `save_plot`, sizing maps can be a bit finicky and you may need to play around with the `chart_height` parameter to get something that looks good.
+`devtools::install_github("ruralinnovation/cori.charts")`
 
 
-**5) Create a Pull Request with your changes**
+Key functions:
 
-In the description of the pull request, write a brief (1-3 sentence) summary of what you found in the data and any methods worth noting.
+- `load_fonts()` – Loads Google Fonts (e.g., Lato)
+- `theme_cori()` – Applies standardized CORI chart theming
+- `theme_cori_horizontal_bars()` – Bar chart-specific styling
+- `save_plot()` – Consistently saves and sizes exported images
+
+**Deliverable:** Create a chart comparing rural vs. nonrural broadband adoption in 2023. Save it as a PNG in the `export` subfolder using `save_plot()`.
+
+You can reference our chart [cookbook](https://ruralinnovation.github.io/cori.charts/articles/cookbook.html) for examples.
+
+### 4) Map broadband adoption rates by county
+
+Use `tigris::counties()` to load county geometries and join them with your broadband data. You’ll likely find these functions useful:
+
+- `sf::st_as_sf()` – Ensure joined data is a valid `sf` object
+- `tigris::shift_geometry()` – Repositions Alaska and Hawaii
+- `sf::st_transform(data, crs = 5070)` – Reprojects to Albers Equal Area (EPSG:5070), ideal for national mapping
+
+**Deliverable:** Create a map of broadband adoption rates by county. Save it as a PNG in the `export` folder. If using `save_plot()`, adjust the `chart_height` argument as needed to size the image appropriately.
+
+### 5) Create a Pull Request
+
+Once complete, open a Pull Request with your changes. In the PR description, include:
+
+- A brief (1–3 sentence) summary of your findings
+- Any notable methods or decisions you made
+
+## Misc Notes
+
+- This repo was forked from our standard data project template.
+  - R scripts → `R/`
+  - Data files → `data/`
+  - Exports (charts/maps) → `export/`
+- Feel free to comment your code as you see fit.
+
+## Final Tips
+
+Your analysis doesn't need to be complex—we’re looking for clarity, thoughtful use of code, and basic proficiency in data visualization and geospatial analysis in R.
 
