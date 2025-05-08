@@ -1,6 +1,6 @@
 # Data visualization developer assessment
 
-This short skills assessment involves pulling public data, creating a chart, and writing a brief summary of your findings. It should take about an hour to complete. Please don't spend much more than this. We understand the time constraint and don't expect perfection. If you run into any issues, please don't hesitate to reach out!
+This short skills assessment involves pulling public data, creating a chart + map, and writing a brief summary of your findings. It should take about an hour to complete. Please don't spend much more than this. We understand the time constraint and don't expect perfection. If you run into any issues, please don't hesitate to reach out!
 
 ## The task
 
