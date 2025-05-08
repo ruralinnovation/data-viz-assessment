@@ -38,6 +38,7 @@ devtools::install_github("ruralinnovation/cori.charts")
 - `theme_cori` applies standardized formatting (consistent margins, fonts, etc.)
 - `theme_cori_horizontal_bars` extends theme_cori with some horizontal bar specific styling.
 - `theme_cori_map` extends theme_cori with some map specific styling.
+- `save_plot` exports images with a CORI logo and consistent formatting.
 
 Produce a chart that compares rural and nonrural broadband adoption in 2023. Simple is OK! Feel free to reference our ["cookbook"](https://ruralinnovation.github.io/cori.charts/articles/cookbook.html) for chart examples. Save your chart as a PNG in the export subfolder using `cori.charts::save_plot`.
 
