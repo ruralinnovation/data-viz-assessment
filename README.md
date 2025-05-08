@@ -52,7 +52,7 @@ When preparing spatial data for mapping in R, the following functions are often 
 
 - `sf::st_as_sf()` – Converts a data frame to an `sf` (simple features) object if it's not already in that format.
 - `tigris::shift_geometry()` – Rescales and repositions Alaska and Hawaii.
-- `sf::st_transform(data, crs = 5070)` – Transforms the coordinate reference system to Albers Equal Area Conic (EPSG:5070), my preference for US choropleth maps.
+- `sf::st_transform(data, crs = 5070)` – Transforms the coordinate reference system to Albers Equal Area Conic (EPSG:5070), our preference for US choropleth maps.
 
 
 The data should now be ready for mapping! Produce a map using geom_sf and save a PNG file to the `export` subfolder. If using `cori.charts::save_plot`, sizing maps can be a bit finicky and you may need to play around with the `chart_height` parameter to get something that looks good.
