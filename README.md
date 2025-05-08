@@ -43,11 +43,14 @@ Produce a chart that compares rural and nonrural broadband adoption in 2023. Sim
 
 **4) Map broadband adoption rates by county**
 
-Next up, let's map how broadband adoption rates vary by county. To do so, we'll need to need to load county geometries using the `tigris::counties` function and join it with our broadband adoption data. When mapping data in R, I often use three functions. 
+Next, let’s map how broadband adoption rates vary by county. Start by using the `tigris::counties` function to load county geometries, and then join this spatial data with your broadband adoption data.
 
-- First, when joining spatial data with non-spatial data, you may need to convert the derived output to an sf object with `sf::st_as_sf`.
-- Second, when mapping the USA, it's helpful to use `tigris::shift_geometry` to rescale Hawaii and Alaska.
-- Third, depending on the data, it may be necessary to transform the projected coordinate system. I recommend using the Albers Equal Area Conic projection, which can be done with `st_transform(data, crs = 5070)`. 
+When preparing spatial data for mapping in R, the following functions are often helpful:
+
+- `sf::st_as_sf()` – Converts a data frame to an `sf` (simple features) object if it's not already in that format.
+- `tigris::shift_geometry()` – Rescales and repositions Alaska and Hawaii for better visualization within the U.S. map.
+- `sf::st_transform(data, crs = 5070)` – Transforms the coordinate reference system to Albers Equal Area Conic (EPSG:5070), which is commonly used for U.S.-wide maps to preserve area.
+
 
 The data should now be ready for mapping! Produce a map using geom_sf and save a png file to the export subfolder. If using `cori.charts::save_plot`, sizing maps can be a bit finicky and you may need to play around with the `chart_height` parameter to get something that looks good.
 
