@@ -23,6 +23,7 @@ cori.charts::load_fonts()
 ```
 
 ## Importing and processing the data
+The following cell has code that I commented out to avoid pulling from the internet too many times. I did this to mitigate connection issues, but I suppose it's also good request etiquette :).
 
 
 ```R
